@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # 버전 핀(latest 금지) — "어제 됐는데 오늘 안 됨" 방지. 월 1회만 올림.
-      HUGO_VERSION: 0.140.2
+      HUGO_VERSION: 0.163.2
     steps:
       - name: Install Hugo CLI (extended)
         run: |
