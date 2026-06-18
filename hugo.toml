@@ -1,0 +1,77 @@
+baseURL = "https://m-been.github.io/blog-kr/"
+languageCode = "ko-kr"
+defaultContentLanguage = "ko"
+title = "한국증시 레시피"
+theme = "PaperMod"
+enableRobotsTXT = true
+enableEmoji = true
+enableGitInfo = false
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  env = "production"
+  description = "한국 증시 일일 보고서·주간 분석·투자 상식을 데이터 기반으로 정리합니다. 투자 권유가 아닌 정보 제공입니다."
+  author = "한국증시 레시피"
+  defaultTheme = "auto"
+  ShowToc = true
+  TocOpen = false
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowShareButtons = false
+  hideFooter = false
+  # AdSense 승인 후 'ca-pub-XXXXXXXXXXXXXXXX' 로 채우면 자동광고 스크립트가 활성화됨
+  adsenseClient = ""
+
+[params.homeInfoParams]
+  Title = "한국증시 레시피 🍳"
+  Content = "매일의 증시 흐름과 종목 신호를 데이터로 정리합니다. **투자 권유가 아닌 정보 제공**이며, 모든 판단과 책임은 투자자 본인에게 있습니다."
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+  ordered = false
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menu.main]]
+  identifier = "daily"
+  name = "일일보고서"
+  url = "/categories/일일보고서/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "weekly"
+  name = "주간레시피"
+  url = "/categories/주간레시피/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "notes"
+  name = "투자상식"
+  url = "/categories/투자상식/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "about"
+  name = "소개"
+  url = "/about/"
+  weight = 80
+
+[[menu.main]]
+  identifier = "contact"
+  name = "연락처"
+  url = "/contact/"
+  weight = 90

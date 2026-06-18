@@ -1,0 +1,4 @@
+{{/* posts 섹션의 글 페이지에서만 면책문 노출 */}}
+{{- if and .IsPage (eq .Section "posts") }}
+  {{- partial "disclaimer.html" . }}
+{{- end }}
