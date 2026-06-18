@@ -1,5 +1,0 @@
-{{/* Google AdSense — adsenseClient 가 설정된 경우에만 로드(승인 후 hugo.toml 에 ca-pub-... 입력) */}}
-{{- with site.Params.adsenseClient }}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}"
-        crossorigin="anonymous"></script>
-{{- end }}

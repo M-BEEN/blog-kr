@@ -2,7 +2,7 @@ baseURL = "https://m-been.github.io/blog-kr/"
 languageCode = "ko-kr"
 defaultContentLanguage = "ko"
 title = "한국증시 레시피"
-theme = "PaperMod"
+# 커스텀 레이아웃(layouts/) 사용 — PaperMod 미사용(recipe 디자인 포팅)
 enableRobotsTXT = true
 enableEmoji = true
 enableGitInfo = false
@@ -40,7 +40,7 @@ enableGitInfo = false
   unsafe = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
 
 [taxonomies]
   category = "categories"
