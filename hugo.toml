@@ -1,6 +1,9 @@
 baseURL = "https://m-been.github.io/blog-kr/"
 languageCode = "ko-kr"
 defaultContentLanguage = "ko"
+# 날짜 없는 date 프런트매터를 KST 자정으로 해석 — cron이 08:00 KST(=전날 23:00 UTC)에
+# 돌 때 당일 글이 UTC 기준 미래가 되어 buildFuture=false 로 누락되던 문제 방지.
+timeZone = "Asia/Seoul"
 title = "한국증시 레시피"
 # 커스텀 레이아웃(layouts/) 사용 — PaperMod 미사용(recipe 디자인 포팅)
 enableRobotsTXT = true
