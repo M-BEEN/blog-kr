@@ -39,7 +39,9 @@
     </a>
     <nav class="nav">
       {{- range .Site.Menus.main }}
-      <a href="{{ (strings.TrimPrefix "/" .URL) | relURL }}">{{ .Name }}</a>
+      {{/* 메뉴 .URL 은 이미 baseURL 서브경로(/blog-kr)를 포함 → relURL 을 또 붙이면
+           /blog-kr/blog-kr/... 로 이중이 된다. .URL 을 그대로 쓴다(서버/프로덕션 동일). */}}
+      <a href="{{ .URL }}">{{ .Name }}</a>
       {{- end }}
     </nav>
     <div class="header-tools">
