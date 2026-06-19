@@ -204,6 +204,62 @@
   </div>
 </div>
 
+{{- else if .Params.isweekly }}
+{{/* ===================== 주간레시피 (심층 에세이) ===================== */}}
+
+<div class="art-head">
+  <div class="art-meta">
+    <span class="badge badge--cat">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
+    <span>{{ .Date.Format "2006년 1월 2일" }}</span>
+    <span class="sep"></span>
+    <span>읽기 {{ .Params.reading }}분</span>
+    <span class="sep"></span>
+    <span>주간 종합</span>
+  </div>
+  <h1 class="art-title">{{ .Title }}</h1>
+  {{- with .Params.lede }}<p class="art-lede">{{ . }}</p>{{ end }}
+  {{- with .Params.week_range }}<div class="art-updated"><span class="dot" style="background:var(--text-muted)"></span> 대상 기간 {{ . }} · 종가 기준</div>{{ end }}
+</div>
+
+{{- with .Params.snapshot }}
+<section style="padding:24px 0 6px">
+  <div class="snap-grid">
+    {{- range . }}
+    <div class="snap">
+      <div class="snap__name">{{ .name }} <span class="tk">{{ .ticker }}</span></div>
+      <div class="snap__val num">{{ .value }}</div>
+      <div class="snap__chg {{ .dir }}"><span class="num">{{ .abs }}</span><span class="pct num">{{ .pct }}</span></div>
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+{{/* startLevel=2 면 .Fragments.Headings 최상위가 빈 루트(h1 자리)라 h2 가 그 자식으로
+     들어온다. 제목 있는 최상위는 그대로, 빈 루트는 자식(h2)을 펼쳐 목차 = ## 섹션만. */}}
+{{- $toc := slice }}
+{{- range .Fragments.Headings }}{{ if .Title }}{{ $toc = $toc | append . }}{{ else }}{{ range .Headings }}{{ $toc = $toc | append . }}{{ end }}{{ end }}{{ end }}
+<div class="art-layout">
+  <aside class="secnav" data-secnav>
+    <div class="secnav__title">목차</div>
+    <ul class="secnav__list">
+      {{- range $i, $h := $toc }}
+      <li><a href="#{{ $h.ID }}"><span>{{ $h.Title }}</span><span class="n">{{ printf "%02d" (add $i 1) }}</span></a></li>
+      {{- end }}
+      <li><a href="#disclaimer"><span>면책 고지</span><span class="n">{{ printf "%02d" (add (len $toc) 1) }}</span></a></li>
+    </ul>
+    <div class="secnav__progress"><i data-progress></i></div>
+  </aside>
+
+  <div class="art-content">
+    <div class="prose page-prose weekly-prose">{{ .Content }}</div>
+    <section class="sec" id="disclaimer" style="border-top:1px solid var(--border);margin-top:30px;padding-top:26px">
+      <div class="sec__head"><span class="sec__num">{{ printf "%02d" (add (len $toc) 1) }}</span><h2 class="sec__title">면책 고지</h2></div>
+      <div class="disclaimer"><strong>투자 유의 안내.</strong> 본 자료는 정보 제공을 목적으로 작성된 것으로, 특정 종목의 매수·매도를 권유하지 않습니다. 수치와 코멘트는 작성 시점 기준이며 실제와 다를 수 있습니다. 모든 투자의 최종 판단과 책임은 투자자 본인에게 있으며, 과거의 수익률이 미래의 수익을 보장하지 않습니다.</div>
+    </section>
+  </div>
+</div>
+
 {{- else }}
 {{/* ===================== 일반 글(소개/정책/연락처 등) ===================== */}}
 <article class="art-head" style="border-bottom:0;padding-bottom:6px">

@@ -40,19 +40,25 @@
   });
 
   /* ---- scroll-spy for article section nav ---- */
+  // 헤딩 id 가 한글이면 Hugo 가 href 를 %xx 로 URL 인코딩하지만 element id 는 원문이라
+  // 그대로 비교하면 안 맞는다 → href 를 디코드해서 id 와 맞춘다(ASCII 는 그대로).
+  function targetId(a) {
+    var raw = a.getAttribute('href').slice(1);
+    try { return decodeURIComponent(raw); } catch (e) { return raw; }
+  }
   function initSpy() {
     var nav = document.querySelector('[data-secnav]');
     if (!nav) return;
     var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
     if (!links.length) return;
     var sections = links.map(function (a) {
-      return document.getElementById(a.getAttribute('href').slice(1));
+      return document.getElementById(targetId(a));
     }).filter(Boolean);
     var progressBar = document.querySelector('[data-progress]');
 
     function setActive(id) {
       links.forEach(function (a) {
-        a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+        a.classList.toggle('is-active', targetId(a) === id);
       });
       // 모바일 칩바: 활성 뱃지를 가운데로 부드럽게 자동 스크롤(항상 보이게)
       var list = nav.querySelector('.secnav__list');
@@ -78,7 +84,7 @@
     // smooth-scroll + progress
     links.forEach(function (a) {
       a.addEventListener('click', function (ev) {
-        var el = document.getElementById(a.getAttribute('href').slice(1));
+        var el = document.getElementById(targetId(a));
         if (!el) return;
         ev.preventDefault();
         var y = el.getBoundingClientRect().top + window.pageYOffset - 80;

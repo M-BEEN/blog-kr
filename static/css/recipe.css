@@ -373,6 +373,17 @@ table.dt .src { color: var(--accent); font-size: 11.5px; font-weight: 600; white
 .page-prose code { font-family: var(--font-mono); font-size: .9em; background: var(--bg-inset); padding: 1px 5px; border-radius: 5px; }
 .page-prose hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
 
+/* ---------- 주간레시피 에세이(.weekly-prose = art-content 안의 page-prose) ---------- */
+/* 본문 헤딩이 목차 앵커 대상 — 스티키 헤더에 가리지 않게 오프셋 */
+.weekly-prose h2, .weekly-prose h3 { scroll-margin-top: calc(var(--header-h) + 16px); }
+.weekly-prose > h2:first-child, .weekly-prose > h3:first-child { margin-top: 6px; }
+.weekly-prose h2 { padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+/* 마크다운 표(클래스 없는 <table>) — 좁은 화면에선 가로 스크롤 */
+.weekly-prose table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 14px; margin: 0 0 16px; }
+.weekly-prose table th, .weekly-prose table td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; }
+.weekly-prose table th { font-weight: 700; color: var(--text-2); background: var(--bg-subtle); }
+.weekly-prose table td.num, .weekly-prose table td:not(:first-child) { font-variant-numeric: tabular-nums; }
+
 /* ---------- 브랜드 마크 = 이미지 아이콘 ---------- */
 img.brand__mark { width: 26px; height: 26px; flex: none; display: block; background: transparent; border-radius: 6px; object-fit: cover; padding: 0; }
 
