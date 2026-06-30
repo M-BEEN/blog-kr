@@ -59,14 +59,14 @@
 
     {{- if .Params.overview }}
     <section class="sec" id="overview">
-      <div class="sec__head"><span class="sec__num">{{ index $num "overview" }}</span><h2 class="sec__title">총평</h2><span class="sec__hint">한눈에 보기</span></div>
+      <div class="sec__head"><span class="sec__num">{{ index $num "overview" }}</span><h2 class="sec__title">총평</h2></div>
       <div class="prose">{{ range split .Params.overview "\n\n" }}{{ $p := strings.TrimSpace . }}{{ with $p }}<p>{{ . }}</p>{{ end }}{{ end }}</div>
     </section>
     {{- end }}
 
     {{- if in $secs "macro" }}
     <section class="sec" id="macro">
-      <div class="sec__head"><span class="sec__num">{{ index $num "macro" }}</span><h2 class="sec__title">지수·매크로 심층</h2><span class="sec__hint">국내 · 해외 · 환율·원자재 · 암호화폐</span></div>
+      <div class="sec__head"><span class="sec__num">{{ index $num "macro" }}</span><h2 class="sec__title">지수·매크로 심층</h2></div>
       {{- with .Params.macro_insight }}<div class="prose">{{ range split . "\n\n" }}{{ $p := strings.TrimSpace . }}{{ with $p }}<p>{{ . }}</p>{{ end }}{{ end }}</div>{{ end }}
       {{- with .Params.macro_strip }}
       <div class="macro-strip">
@@ -108,7 +108,7 @@
 
     {{- if in $secs "leaders" }}
     <section class="sec" id="leaders">
-      <div class="sec__head"><span class="sec__num">{{ index $num "leaders" }}</span><h2 class="sec__title">주도주 · 신호주</h2><span class="sec__hint">시장별 신호 포착</span></div>
+      <div class="sec__head"><span class="sec__num">{{ index $num "leaders" }}</span><h2 class="sec__title">주도주 · 신호주</h2></div>
       {{- range .Params.signals_leaders }}
       <div class="subhead">{{ .market }} 주도주</div>
       <div class="tbl-wrap"><table class="dt">
@@ -128,7 +128,7 @@
 
     {{- with .Params.watchlist }}
     <section class="sec" id="watchlist">
-      <div class="sec__head"><span class="sec__num">{{ index $num "watchlist" }}</span><h2 class="sec__title">관심 종목</h2><span class="sec__hint">종가 · 등락 · 추세</span></div>
+      <div class="sec__head"><span class="sec__num">{{ index $num "watchlist" }}</span><h2 class="sec__title">관심 종목</h2></div>
       <div class="tbl-wrap"><table class="dt">
         <thead><tr><th>종목</th><th>코드</th><th class="r">종가</th><th class="r">등락률</th><th>추세</th></tr></thead>
         <tbody>{{ range . }}<tr><td class="name">{{ .name }}</td><td class="code num" data-label="코드">{{ .code }}</td><td class="r num" data-label="종가">{{ .close }}</td><td class="r num {{ .dir }}" data-label="등락률">{{ .pct }}</td><td data-label="추세">{{ .trend }}</td></tr>{{ end }}</tbody>
@@ -138,7 +138,7 @@
 
     {{- with .Params.insights }}
     <section class="sec" id="insights">
-      <div class="sec__head"><span class="sec__num">{{ index $num "insights" }}</span><h2 class="sec__title">매매 인사이트</h2><span class="sec__hint">종목별 시나리오</span></div>
+      <div class="sec__head"><span class="sec__num">{{ index $num "insights" }}</span><h2 class="sec__title">매매 인사이트</h2></div>
       <div class="insight-grid">
         {{- range . }}
         <div class="insight">
@@ -161,7 +161,7 @@
 
     {{- with .Params.issues }}
     <section class="sec" id="issues">
-      <div class="sec__head"><span class="sec__num">{{ index $num "issues" }}</span><h2 class="sec__title">경제 이슈</h2><span class="sec__hint">주요 뉴스</span></div>
+      <div class="sec__head"><span class="sec__num">{{ index $num "issues" }}</span><h2 class="sec__title">경제 이슈</h2></div>
       <ul class="timeline">
         {{- range . }}
         <li>
