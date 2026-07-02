@@ -165,8 +165,8 @@
       <ul class="timeline">
         {{- range . }}
         <li>
-          <div class="t-title">{{ .title }}</div>
-          <div class="t-body">{{ .body }}{{ with .source }}<a class="t-src" href="{{ . }}" target="_blank" rel="noopener">출처</a>{{ end }}</div>
+          <div class="t-title">{{ with .when }}<span class="t-when">{{ . }}</span>{{ end }}{{ .title }}</div>
+          <div class="t-body">{{ .body }}{{ with .impact }}<span class="t-impact">국내 영향: {{ . }}</span>{{ end }}{{ with .source }}<a class="t-src" href="{{ . }}" target="_blank" rel="noopener">출처</a>{{ end }}</div>
         </li>
         {{- end }}
       </ul>
