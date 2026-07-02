@@ -277,6 +277,9 @@ table.dt .src { color: var(--accent); font-size: 11.5px; font-weight: 600; white
 .timeline .t-title { font-weight: 700; font-size: 14px; margin: 2px 0 4px; }
 .timeline .t-body { font-size: 13px; color: var(--text-2); line-height: 1.6; }
 .timeline .t-src { font-size: 11.5px; color: var(--accent); font-weight: 600; margin-left: 7px; }
+.timeline .t-when { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); background: var(--bg-subtle); border-radius: 999px; padding: 1px 8px; margin-right: 8px; vertical-align: 2px; }
+.timeline .t-impact { display: block; margin-top: 5px; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.timeline .t-impact::before { content: '↳ '; color: var(--accent); font-weight: 700; }
 
 /* schedule / extra cols */
 .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
