@@ -1,6 +1,6 @@
 ---
 title: "PER 4배짜리 반도체주가 꼭지였던 이유 — PER과 PBR을 같이 봐야 하는 진짜 이유"
-date: 2026-07-13
+date: 2026-07-16
 draft: false
 categories: ["투자상식"]
 tags: ["PER", "PBR", "ROE", "밸류에이션"]
